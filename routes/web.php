@@ -6,6 +6,13 @@ Route::prefix('admin')
         ->group(function () {
 
             /**
+             * Router Profiles
+             */
+            Route::any('profiles/search', [App\Http\Controllers\Admin\ACL\ProfileController::class, 'search'])->name('profiles.search');
+
+            Route::resource('profiles', App\Http\Controllers\Admin\ACL\ProfileController::class);
+
+            /**
              * Routes Details Plan
              */
             Route::delete('plans/{url}/details/{idDetail}', [App\Http\Controllers\Admin\DetailPlanController::class, 'destroy'])->name('detail.plan.destroy');
