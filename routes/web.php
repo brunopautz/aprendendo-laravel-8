@@ -8,6 +8,10 @@ Route::prefix('admin')
             /**
              * Routes Details Plan
              */
+            Route::delete('plans/{url}/details/{idDetail}', [App\Http\Controllers\Admin\DetailPlanController::class, 'destroy'])->name('detail.plan.destroy');
+            Route::get('plans/{url}/details/{idDetail}', [App\Http\Controllers\Admin\DetailPlanController::class, 'show'])->name('detail.plan.show');
+            Route::put('plans/{url}/details/{idDetail}', [App\Http\Controllers\Admin\DetailPlanController::class, 'update'])->name('detail.plan.update');
+            Route::get('plans/{url}/details/{idDetail}/edit', [App\Http\Controllers\Admin\DetailPlanController::class, 'edit'])->name('detail.plan.edit');
             Route::post('plans/{url}/details', [App\Http\Controllers\Admin\DetailPlanController::class, 'store'])->name('detail.plan.store');
             Route::get('plans/{url}/details/create', [App\Http\Controllers\Admin\DetailPlanController::class, 'create'])->name('detail.plan.create');
             Route::get('plans/{url}/details', [App\Http\Controllers\Admin\DetailPlanController::class, 'index'])->name('detail.plan.index');
