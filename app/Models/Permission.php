@@ -19,4 +19,12 @@ class Permission extends Model
                         ->paginate(1);
         return $results;
     }
+
+    /**
+     * Get Perfil
+     */
+    public function profiles()
+    {
+        return $this->belongsToMany(Profile::class);
+    }
 }

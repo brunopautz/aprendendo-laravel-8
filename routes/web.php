@@ -4,10 +4,18 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')
         ->group(function () {
+            /**
+             * Permission x Profile
+             */
+            Route::get('profile/{id}/permissions/{idPermission}/detach',  [App\Http\Controllers\Admin\ACL\PermissionProfileController::class, 'detachPermissionsProfile'])->name('profile.permission.detach');
+            Route::post('profile/{id}/permissions',  [App\Http\Controllers\Admin\ACL\PermissionProfileController::class, 'attachPermissionsProfile'])->name('profile.permission.attach');
+            Route::any('profile/{id}/permissions/create',  [App\Http\Controllers\Admin\ACL\PermissionProfileController::class, 'permissionsAvailable'])->name('profile.permission.available');
+            Route::get('profile/{id}/permissions',  [App\Http\Controllers\Admin\ACL\PermissionProfileController::class, 'permissions'])->name('profile.permission');
 
             /**
              * Router Permissions
              */
+            Route::get('permissions/{id}/profiles',  [App\Http\Controllers\Admin\ACL\PermissionProfileController::class, 'profiles'])->name('profile.permission.profile');
             Route::any('permissions/search', [App\Http\Controllers\Admin\ACL\PermissionController::class, 'search'])->name('permissions.search');
             Route::resource('permissions', App\Http\Controllers\Admin\ACL\PermissionController::class);
             

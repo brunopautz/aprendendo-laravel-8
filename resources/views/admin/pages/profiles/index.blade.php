@@ -39,6 +39,7 @@
                                 {{-- <a href="{{ route('detail.plan.index', $plan->url )}}" class="btn btn-primary">Detalhes</a> --}}
                                 <a href="{{ route('profiles.edit', $profile->id )}}" class="btn btn-info">Editar</a>
                                 <a href="{{ route('profiles.show', $profile->id )}}" class="btn btn-warning">Ver</a>
+                                <a href="{{ route('profile.permission', $profile->id)}}" class="btn btn-primary"> <i class="fas fa-lock"></i> </a>
                             </td>
                         </tr>
                     @endforeach
